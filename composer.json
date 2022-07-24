@@ -1,23 +1,31 @@
 {
-    "name": "halo123450/zxipdb",
-    "description": "IPv4/IPv6 offline address database.IPv4/IPv6双栈地址离线数据库。IPv4 by 纯真网络，IPv6",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "tanqm",
-            "email": "tan840027@qq.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=5.6"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Halo123450\\Zxipdb\\": "src/ZxIPAddress"
-        }
+  "name": "halo123450/zxipdb",
+  "type": "library",
+  "keywords": [
+    "IPv4",
+    "IPv6"
+  ],
+  "homepage": "https://ip.s-3.cn",
+  "license": "MIT",
+  "description": "IPv4/IPv6 offline address database",
+  "authors": [
+    {
+      "name": "tanqm",
+      "email": "tan840027@qq.com",
+      "homepage": "https://www.s-3.cn",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "tan840027@qq.com",
+    "issues": "https://github.com/halo123450/zxipdb-php/issues"
+  },
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Halo123450\\Zxipdb\\": "src/ZxIPAddress"
+    }
+  }
 }
