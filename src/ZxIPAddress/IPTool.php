@@ -4,6 +4,10 @@ namespace Halo123450\Zxipdb;
 
 class IPTool
 {
+    /**
+     * @param string $ip
+     * @return string $district_name
+     */
     public static function query($ip)
     {
         switch (true) {
@@ -15,6 +19,22 @@ class IPTool
         throw new InvalidIpAddressException("Invalid IP address:{$ip}");
     }
 
+    /**
+     * 通过IP地址解析IP归属地
+     * @param string $ip
+     * @return array [$province_id, $city_id, $province_name, $city_name, $district_name]
+     */
+    public static function getLocation($ip)
+    {
+        return IpLocation::getLocation(
+            static::query($ip)
+        );
+    }
+
+    /**
+     * @param void
+     * @return array
+     */
     public static function total()
     {
         return [
