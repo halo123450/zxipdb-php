@@ -6,7 +6,7 @@ class IPTool
 {
     /**
      * @param string $ip
-     * @return string $district_name
+     * @return array
      */
     public static function query($ip)
     {
@@ -26,8 +26,9 @@ class IPTool
      */
     public static function getLocation($ip)
     {
+        $result = static::query($ip);
         return IpLocation::getLocation(
-            static::query($ip)
+            (is_array($result) && isset($result['disp'])) ? $result['disp'] : ''
         );
     }
 
