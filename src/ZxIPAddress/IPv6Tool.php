@@ -85,8 +85,13 @@ class IPv6Tool
             $ip_end = "FFFF:FFFF:FFFF:FFFF::";
         }
         $ip_record_offset = static::read8($fd, $ip_offset+static::$iplen, static::$offlen);
-        $ip_addr          = static::read_record($fd, $ip_record_offset);
-        $ip_addr_disp     = $ip_addr[0] . " " . $ip_addr[1];
+
+        $ip_addr = static::read_record($fd, $ip_record_offset);
+
+        $ip_addr[1] = isset($ip_addr[1]) ? str_replace(["CZ88.NET"], "", $ip_addr[1]) : '';
+
+        $ip_addr_disp = trim($ip_addr[0] . " " . $ip_addr[1]);
+
         if (is_resource($fd)) {
             fclose($fd);
         }

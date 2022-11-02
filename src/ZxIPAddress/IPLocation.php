@@ -30,7 +30,8 @@ class IPLocation
             if ($location_id > 0) {
                 foreach (static::provinceCitys($location_id) as $cid => $cname) {
                     if (false !== strpos($district_name, $cname)) {
-                        $city_id = $cid;
+                        $city_id     = $cid;
+                        $province_id = $location_id;
                         break 2;
                     }
                 }
@@ -80,7 +81,7 @@ class IPLocation
      * 获取省份城市列表
      * @return array
      */
-    public static function provinceCitys($location_id = 0)
+    public static function provinceCitys($id = 0)
     {
         $province_citys = [];
         foreach (static::getLocationConfigurations() as $location_id => $district) {
@@ -90,7 +91,7 @@ class IPLocation
                 $province_citys[$district[1]][$location_id] = $district[0];
             }
         }
-        return $location_id > 0 ? (isset($province_citys[$location_id]) ? $province_citys[$location_id] : []) : $province_citys;
+        return $id > 0 ? (isset($province_citys[$id]) ? $province_citys[$id] : []) : $province_citys;
     }
 
     /**
@@ -101,7 +102,7 @@ class IPLocation
     public static function getName($location_id)
     {
         $district = static::getLocationConfigurations();
-        return isset($district[$location_id]) ? $district[0] : '未知';
+        return isset($district[$location_id]) ? $district[$location_id][0] : '未知';
     }
 
     /**
