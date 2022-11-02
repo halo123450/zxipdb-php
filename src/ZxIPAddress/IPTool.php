@@ -27,7 +27,7 @@ class IPTool
     public static function getLocation($ip)
     {
         $result = static::query($ip);
-        return IpLocation::getLocation(
+        return IPLocation::getLocation(
             (is_array($result) && isset($result['disp'])) ? $result['disp'] : ''
         );
     }

@@ -88,9 +88,9 @@ class IPv6Tool
 
         $ip_addr = static::read_record($fd, $ip_record_offset);
 
-        $ip_addr[1] = isset($ip_addr[1]) ? str_replace(["CZ88.NET"], "", $ip_addr[1]) : '';
+        $ip_addr[1] = isset($ip_addr[1]) ? str_replace(["CZ88.NET", " "], "", $ip_addr[1]) : '';
 
-        $ip_addr_disp = trim($ip_addr[0] . " " . $ip_addr[1]);
+        $ip_addr_disp = trim(trim($ip_addr[0]) . " " . trim($ip_addr[1]));
 
         if (is_resource($fd)) {
             fclose($fd);
