@@ -78,6 +78,21 @@ class IPLocation
     }
 
     /**
+     * 获取城市列表
+     *  @return array
+     */
+    public static function commonCity()
+    {
+        $city_list = [];
+        foreach (static::getLocationConfigurations() as $location_id => $district) {
+            if ($district[2] === 2) {
+                $city_list[$location_id] = $district[0];
+            }
+        }
+        return $city_list;
+    }
+
+    /**
      * 获取省份城市列表
      * @return array
      */
